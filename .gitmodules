@@ -1,0 +1,12 @@
+[submodule "upstream/django-subscription"]
+	path = upstream/django-subscription
+	url = git://github.com/CrowdSense/django-subscription.git
+[submodule "upstream/django-muaccounts"]
+	path = upstream/django-muaccounts
+	url = git://github.com/CrowdSense/django-muaccounts.git
+[submodule "upstream/django-paypal"]
+	path = upstream/django-paypal
+	url = git://github.com/johnboxall/django-paypal.git
+[submodule "upstream/django-registration"]
+	path = upstream/django-registration
+	url = git://github.com/bretthoerner/django-registration.git
