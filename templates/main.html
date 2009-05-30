@@ -1,0 +1,13 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>{% block title %}Title{% endblock %}</title>
+ </head>
+  <body>
+    <div style="font-size: large;">
+      <a href="/">main</a>
+      | <a href="/admin/">admin</a>
+    </div>
+    {% block body %} Body {% endblock %}
+  </body>
+</html>

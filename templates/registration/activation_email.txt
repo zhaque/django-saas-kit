@@ -1,0 +1,3 @@
+Complete your registration at {{site}} by going to address http://{{site.domain}}/accounts/activate/{{activation_key}}
+
+This activation key will be valid for {{expiration_days}} days.

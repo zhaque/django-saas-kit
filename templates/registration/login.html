@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block title %}  formularz logowania{% endblock %}
+{% block body %}
+<form method="post" action="{% url django.contrib.auth.views.login %}">
+  <fieldset><legend>Log in</legend>
+  {{ form.as_p }}
+  <input type="submit" value="zaloguj" />
+</form>
+{% endblock %}

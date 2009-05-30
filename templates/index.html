@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block title %} Hello. {% endblock %} 
+{% block body %}
+<h1>Main page.</h1>
+{% if user.is_authenticated %}
+<p>Hello, <em>{{user}}</em></p>
+<ul>
+  <li><a href="{% url auth_password_change %}">Change password</a></li>
+  <li><a href="{% url subscription_list %}">Available subscriptions</a></li>
+  <li><a href="{% url auth_logout %}">Log out</a></li>
+</ul>
+{% else %}
+<ul>
+  <li><a href="{% url auth_login %}">Log in</a></li>
+  <li><a href="{% url auth_password_reset %}">Reset password</a></li>
+  <li><a href="{% url registration_register %}">Sign up</a></li>
+</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% block title %} Details for {{object.name}}. {% endblock %} 
+{% block body %}
+
+<h1>{{object.name}}</h1>
+<p>{{object.description}}</p>
+
+<p>{{object.get_pricing_display}}</p>
+
+{% if user.get_subscription %}
+<p>
+{% ifequal user.get_subscription object %}
+<strong>This is your current subscription.</strong>
+  {% if object.recurrence_unit %}
+  You can cancel it at your PayPal account.
+  {% else %}
+  You can cancel it by contacting support.  But why?
+  {% endif %}
+{% else %}
+You are already subscribed.  To upgrade or downgrade your subscription, you need to
+cancel you current subscription (either on PayPal, or by contacting
+support), and then subscribe to an other plan.
+{% endifequal %}
+</p>
+{% else %}
+{{form.sandbox}}
+{% endif %}
+
+{% endblock %}

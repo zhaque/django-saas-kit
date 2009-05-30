@@ -65,21 +65,30 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'project.urls'
 
+import os.path
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.normpath((os.path.join(os.path.dirname(__file__),'..','templates'))),
 )
-
-PAYPAL_RECEIVER_EMAIL='paypal-sandbox@pasternacki.net'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
     'paypal.standard.ipn',
     'registration',
     'muaccounts',
     'subscription',
 )
+
+PAYPAL_RECEIVER_EMAIL='paypal_1243260889_biz@pasternacki.net'
+ACCOUNT_ACTIVATION_DAYS=7
+LOGIN_REDIRECT_URL = '/'
+SUBSCRIPTION_PAYPAL_SETTINGS = {
+    'business' : PAYPAL_RECEIVER_EMAIL,
+    }

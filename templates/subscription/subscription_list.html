@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+
+{% block title %} Available subscriptions. {% endblock %} 
+{% block body %}
+<table rules=all>
+  <thead><tr><th>name</th><th>description</th><th>price</th><th>renewal</th><th>&nbsp;</th></tr></thead>
+  <tbody>
+    {% for o in object_list %}
+   <tr{% ifequal o.subscription user.get_subscription %} style="background:yellow;"{% endifequal %}>
+      <th>{{o.subscription.name}}</th>
+      <td>{{o.subscription.description}}</td>
+      <td>{{o.subscription.get_pricing_display}}</td>
+      <td>{{o.subscription.renewal_period}}</td>
+      <td><a href="{{o.subscription.get_absolute_url}}">details »</a>
+        {% if not user.get_subscription %}
+        {{o.form.sandbox}}
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

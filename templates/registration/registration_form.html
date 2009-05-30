@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% block title %} Registration form {% endblock %} 
+{% block body %}
+<h1>Sign up</h1>
+<form method="post" action="">
+  <fieldset><legend>Registration form</legend>
+  <table>{{ form.as_table }}</table>
+  <input type="submit" value="Submit" />
+  </fieldset>
+</form>
+{% endblock %}
