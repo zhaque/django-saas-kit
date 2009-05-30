@@ -1,6 +1,6 @@
 1. clone
 2. git submodule init
-3. git submodule update
+3. git submodule update --init
 4. cd project
 5. python manage.py syncdb
 6. python manage.py runserver
