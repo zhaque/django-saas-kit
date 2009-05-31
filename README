@@ -4,3 +4,7 @@
 4. cd project
 5. python manage.py syncdb
 6. python manage.py runserver
+
+
+* Dual licensed under the MIT (MIT-LICENSE.txt)
+* and GPL (GPL-LICENSE.txt) licenses.
