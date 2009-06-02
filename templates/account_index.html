@@ -1,0 +1,8 @@
+{% extends "main.html" %}
+
+{% block title %} Hello. {% endblock %} 
+{% block body %}
+<h1>Multi-user site <em>{{request.muaccount}}</em>.</h1>
+{% if user.is_authenticated %}<p>Logged in as <em>{{user}}</em>{% endif %}
+
+{% endblock %}

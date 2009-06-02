@@ -7,6 +7,11 @@
     <div style="font-size: large;">
       <a href="/">main</a>
       | <a href="/admin/">admin</a>
+      {% if user.is_authenticated %}
+      | <em>{{user}}</em> [<a href="{% url auth_logout %}">logout</a>]
+      {% else %}
+      | <a href="{% url auth_login %}">log in</a>
+      {% endif %}
     </div>
     {% block body %} Body {% endblock %}
   </body>

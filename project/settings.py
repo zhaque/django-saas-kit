@@ -61,6 +61,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'muaccounts.middleware.MUAccountsMiddleware',
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -84,11 +85,18 @@ INSTALLED_APPS = (
     'registration',
     'muaccounts',
     'subscription',
+    'saas_kit',
 )
 
-PAYPAL_RECEIVER_EMAIL='paypal_1243260889_biz@pasternacki.net'
+PAYPAL_RECEIVER_EMAIL='example@example.com'
 ACCOUNT_ACTIVATION_DAYS=7
 LOGIN_REDIRECT_URL = '/'
 SUBSCRIPTION_PAYPAL_SETTINGS = {
     'business' : PAYPAL_RECEIVER_EMAIL,
     }
+
+from django.conf import global_settings
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request',)
+# MUACCOUNTS_ROOT_DOMAIN = 'example.com'
+# MUACCOUNTS_DEFAULT_DOMAIN = '...'
+MUACCOUNTS_ACCOUNT_URLCONF = 'project.urls_muaccount'
