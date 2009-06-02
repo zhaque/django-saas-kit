@@ -5,6 +5,24 @@
 5. python manage.py syncdb
 6. python manage.py runserver
 
+Project includes, as Git sumodules, all needed Django applications;
+only requirements are Python (2.5 or higher, but may work on earlier
+versions of Python) and stable release of Django (1.0.2 at this
+moment).
+
+When some of dependencies are installed system-wide (especially if
+installed with easy_install), Django may issue warnings similar to
+one pasted below:
+
+    Installing index for admin.LogEntry model
+    Installing index for subscription.Transaction model
+    /opt/local/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages/simplejson-2.0.9-py2.5-macosx-10.5-i386.egg/simplejson/_speedups.py:3:
+    UserWarning: Module registration was already imported from /Users/admin/Projects/django-saas-kit/site-python/registration/__init__.py, but /opt/local/lib/python2.5/site-packages/django_registration-0.7-py2.5.egg is being added to sys.path
+     import sys, pkg_resources, imp
+
+Such warnings are not important, since they only indicate that
+system-wide installation of django-registration is not used, and
+project-local checkout is used instead.
 
 * Dual licensed under the MIT (MIT-LICENSE.txt)
 * and GPL (GPL-LICENSE.txt) licenses.
