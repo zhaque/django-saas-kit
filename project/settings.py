@@ -97,6 +97,6 @@ SUBSCRIPTION_PAYPAL_SETTINGS = {
 
 from django.conf import global_settings
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request',)
-# MUACCOUNTS_ROOT_DOMAIN = 'example.com'
-# MUACCOUNTS_DEFAULT_DOMAIN = '...'
+MUACCOUNTS_ROOT_DOMAIN = 'example.com:8000'
+MUACCOUNTS_DEFAULT_DOMAIN = 'www.example.com:8000'
 MUACCOUNTS_ACCOUNT_URLCONF = 'project.urls_muaccount'
