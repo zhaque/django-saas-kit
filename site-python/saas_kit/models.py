@@ -13,6 +13,11 @@ def _domainify(s):
     return s
 
 def create_muaccount_on_subscribed(sender, user=None, **kwargs):
+    # Don't re-create account if one exists.
+    try: user.muaccount
+    except MUAccount.DoesNotExist: pass
+    else: return
+
     base_dn = _domainify(user.username)
 
     taken_domains = set([
