@@ -8,9 +8,9 @@
 
 <p>{{object.get_pricing_display}}</p>
 
-{% if user.get_subscription %}
+{% if user.usersubscription %}
 <p>
-{% ifequal user.get_subscription object %}
+{% ifequal user.usersubscription.subscription object %}
 <strong>This is your current subscription.</strong>
   {% if object.recurrence_unit %}
   You can cancel it at your PayPal account.
