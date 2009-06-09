@@ -1,14 +1,46 @@
-1. clone
-2. git submodule init
-3. git submodule update --init
-4. cd project
-5. python manage.py syncdb
+Django SAAS kit is an example Django project integrating
+django-subscription and django-muaccount applications to achieve
+multi-user accounts with custom domain, that are characteristic for
+Software As A Service-type (SAAS) services.
+
+To start the project, after cloning Git repository, run:
+
+1. git submodule init
+2. git submodule update --init
+3. cd project
+4. python manage.py syncdb
+5. python manage.py loaddata exampledata.json
 6. python manage.py runserver
 
 Project includes, as Git sumodules, all needed Django applications;
 only requirements are Python (2.5 or higher, but may work on earlier
 versions of Python) and stable release of Django (1.0.2 at this
 moment).
+
+By loading exampledata.json, data is populated with:
+- Silver Membership monthly recurring plan, linked to Silver Member group
+- Gold Membership monthly recurring plan, linked to Gold Member group,
+  having ability to set custom domain
+- administrative interface user, login admin, password admin
+- free_user user, password "free", with no paid plan selected
+- silver_user user, password "silver", with silver plan selected
+- gold_user user, password "gold", with gold plan selected
+- muaccount of free_user with subdomain "free"
+- muaccount of silver_user with subdomain "silver"
+- muaccount of gold_user with custom domain "www.gold-account.com"
+- test1 user, password "test", with no plan selected, member of "free"
+  and "silver" muaccount
+- test2 user, password "test", with no plan selected, member of
+  "silver" and "gold" account
+- test3 user, password "test", with no plan selected, member of
+  "gold" account
+
+Project is expected to run on localhost, port 8000 (port is hardcoded
+in settings for muaccounts root domain and in example data custom
+domain).  For all sites to work correctly, following hosts must
+resolve to 127.0.0.1 (e.g. by adding entry in /etc/hosts): example.com
+www.example.com free.example.com silver.example.com gold.example.com
+www.gold-account.com.
 
 When some of dependencies are installed system-wide (especially if
 installed with easy_install), Django may issue warnings similar to
