@@ -9,7 +9,6 @@
 <ul>
   <li><a href="{% url auth_password_change %}">Change password</a></li>
   <li><a href="{% url subscription_list %}">Available subscriptions</a></li>
-  <li><a href="{% url auth_logout %}">Log out</a></li>
   <li>{% if user.muaccount %}
   <a href="{% url muaccounts_account_detail %}">Your site <em>{{user.muaccount}}</em></a>
   {% else %}
@@ -18,9 +17,7 @@
 </ul>
 {% else %}
 <ul>
-  <li><a href="{% url auth_login %}">Log in</a></li>
-  <li><a href="{% url auth_password_reset %}">Reset password</a></li>
-  <li><a href="{% url registration_register %}">Sign up</a></li>
+  <li><a href="{% url subscription_list %}">Available subscriptions</a></li>
 </ul>
 {% endif %}
 {% endblock %}

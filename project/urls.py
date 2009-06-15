@@ -3,6 +3,9 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 admin.autodiscover()
 
+import signal_handlers
+signal_handlers.install()
+
 urlpatterns = patterns('',
     (r'^$', 'django.views.generic.simple.direct_to_template', dict(template='index.html')),
     (r'^accounts/', include('registration.urls')),

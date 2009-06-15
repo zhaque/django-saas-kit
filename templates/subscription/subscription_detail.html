@@ -8,23 +8,21 @@
 
 <p>{{object.get_pricing_display}}</p>
 
-{% if user.usersubscription %}
-<p>
-{% ifequal user.usersubscription.subscription object %}
-<strong>This is your current subscription.</strong>
-  {% if object.recurrence_unit %}
-  You can cancel it at your PayPal account.
-  {% else %}
-  You can cancel it by contacting support.  But why?
-  {% endif %}
+{% if usersubscription %}
+{% if usersubscription.active %}
+<p><strong>You are subscribed to this plan.</strong>
+  You may <a href="{{cancel_url}}">cancel at paypal</a> if you
+  wish.</p>
 {% else %}
-You are already subscribed.  To upgrade or downgrade your subscription, you need to
-cancel you current subscription (either on PayPal, or by contacting
-support), and then subscribe to an other plan.
-{% endifequal %}
-</p>
-{% else %}
-{{form.sandbox}}
+<p><strong>You did not cancel your old plan.</strong>
+  <a href="{{cancel_url}}">Cancel it at paypal</a> now!</p>
 {% endif %}
+{% else %}{% if change_denied_reasons %}
+<p><strong>You cannot switch to this plan.</strong> Reasons:
+<ul>{% for reason in change_denied_reasons %}<li>{{reason}}</li>{% endfor %}</ul>
+{% else %}
+<p>Sign up for this plan!</p>
+{{form.sandbox}}
+{% endif %}{% endif %}
 
 {% endblock %}

@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'saas_kit',
 )
 
+PAYPAL_TEST = True
 PAYPAL_RECEIVER_EMAIL='example@example.com'
 ACCOUNT_ACTIVATION_DAYS=7
 LOGIN_REDIRECT_URL = '/'
@@ -97,6 +98,8 @@ SUBSCRIPTION_PAYPAL_SETTINGS = {
 
 from django.conf import global_settings
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + ('django.core.context_processors.request',)
-MUACCOUNTS_ROOT_DOMAIN = 'example.com:8000'
-MUACCOUNTS_DEFAULT_DOMAIN = 'www.example.com:8000'
+MUACCOUNTS_ROOT_DOMAIN = 'example.com'
+MUACCOUNTS_DEFAULT_DOMAIN = 'www.example.com'
+MUACCOUNTS_PORT=8000
 MUACCOUNTS_ACCOUNT_URLCONF = 'project.urls_muaccount'
+MUACCOUNTS_IP = '127.0.0.1'

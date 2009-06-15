@@ -1,9 +1,12 @@
 {% extends "main.html" %}
-{% block title %}  formularz logowania{% endblock %}
+{% block title %}Log in{% endblock %}
 {% block body %}
 <form method="post" action="{% url django.contrib.auth.views.login %}">
   <fieldset><legend>Log in</legend>
   {{ form.as_p }}
-  <input type="submit" value="zaloguj" />
+  <input type="submit" value="log in" />
+  <input type="hidden" name="next" value="{{ next }}" />
 </form>
+  <p><a href="{% url auth_password_reset %}">Reset password</a>
+  | <a href="{% url registration_register %}">Sign up</a></p>
 {% endblock %}
