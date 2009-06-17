@@ -10,9 +10,15 @@
 
 {% if usersubscription %}
 {% if usersubscription.active %}
+{% if usersubscription.cancelled %}
+<p><strong>You have cancelled subscription to this plan.</strong>
+You may still resubscribe if you wish!</p>
+{{form.sandbox}}
+{% else %}
 <p><strong>You are subscribed to this plan.</strong>
   You may <a href="{{cancel_url}}">cancel at paypal</a> if you
   wish.</p>
+{% endif %}
 {% else %}
 <p><strong>You did not cancel your old plan.</strong>
   <a href="{{cancel_url}}">Cancel it at paypal</a> now!</p>
