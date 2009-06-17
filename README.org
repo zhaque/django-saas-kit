@@ -1,26 +1,15 @@
-                                Django SAAS kit
-                                ===============
-
-Author: Maciej Pasternacki <maciej@pasternacki.net>
-Date: 2009/06/17 15:50:01
-
+#+TITLE:     Django SAAS kit
+#+AUTHOR:    Maciej Pasternacki
+#+EMAIL:     maciej@pasternacki.net
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:nil LaTeX:nil skip:nil d:nil tags:not-in-toc
 
 Django SAAS kit is an example Django project integrating
 django-subscription and django-muaccount applications to achieve
 multi-user accounts with custom domain, that are characteristic for
 Software As A Service-type (SAAS) services.
 
-Table of Contents
-=================
-1 Getting started
-2 Default data set
-3 Runtime environment
-    3.1 Warnings at startup
-4 License
-
-
-1 Getting started
-~~~~~~~~~~~~~~~~~
+* Getting started
   To start the project, after cloning Git repository, run:
 
   1. make -C upstream/ init
@@ -33,9 +22,7 @@ Table of Contents
   upstream/Makefile all needed Django applications; only requirements
   are Python (2.5 or higher, but may work on earlier versions of
   Python) and stable release of Django (1.0.2 at this moment).
-
-2 Default data set
-~~~~~~~~~~~~~~~~~~
+* Default data set
   By loading exampledata.json, data is populated with:
   - Silver Membership monthly recurring plan, linked to Silver Member group,
     having ability to change muaccount's public status;
@@ -54,9 +41,7 @@ Table of Contents
     "silver" and "gold" account
   - test3 user, password "test", with no plan selected, member of
     "gold" account
-
-3 Runtime environment
-~~~~~~~~~~~~~~~~~~~~~
+* Runtime environment
   Project is expected to run on localhost, port 8000 (or any other
   port set in MUACCOUNTS_PORT).  For all sites to work correctly,
   following hosts must resolve to 127.0.0.1 (e.g. by adding entry in
@@ -65,7 +50,7 @@ Table of Contents
   on standard port (80 for HTTP), comment out MUACCOUNTS_PORT setting.
 
   To succesfully use PayPal sandbox, you'll need to:
-  - sign up for PayPal sandbox at [http://developer.paypal.com/]
+  - sign up for PayPal sandbox at http://developer.paypal.com/
   - configure PAYPAL_RECEIVER_EMAIL and possibly SUBSCRIPTION_PAYPAL_SETTINGS
     in project/settings.py
   - make sure your page is visible from outside world (necessary for IPN callbacks)
@@ -76,24 +61,20 @@ Table of Contents
   To run with live PayPal, you'll need to change {{form.sandbox}} to {{form.render}}
   in templates/subscription/subscription_detail.html and set PAYPAL_TEST to False in
   project/settings.py.
-
-3.1 Warnings at startup
-=======================
+** Warnings at startup
    When some of dependencies are installed system-wide (especially if
    installed with easy_install), Django may issue warnings similar to
    one pasted below:
 
-       Installing index for admin.LogEntry model
-       Installing index for subscription.Transaction model
-       /opt/local/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages/simplejson-2.0.9-py2.5-macosx-10.5-i386.egg/simplejson/_speedups.py:3:
-       UserWarning: Module registration was already imported from /Users/admin/Projects/django-saas-kit/site-python/registration/__init__.py, but /opt/local/lib/python2.5/site-packages/django_registration-0.7-py2.5.egg is being added to sys.path
-        import sys, pkg_resources, imp
-   
+   :    Installing index for admin.LogEntry model
+   :    Installing index for subscription.Transaction model
+   :    /opt/local/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages/simplejson-2.0.9-py2.5-macosx-10.5-i386.egg/simplejson/_speedups.py:3:
+   :    UserWarning: Module registration was already imported from /Users/admin/Projects/django-saas-kit/site-python/registration/__init__.py, but /opt/local/lib/python2.5/site-packages/django_registration-0.7-py2.5.egg is being added to sys.path
+   :     import sys, pkg_resources, imp
+   :
    Such warnings are not important, since they only indicate that
    system-wide installation of django-registration is not used, and
    project-local checkout is used instead.
-
-4 License
-~~~~~~~~~
+* License
   Dual licensed under the MIT (MIT-LICENSE.txt)
   and GPL (GPL-LICENSE.txt) licenses.
