@@ -8,5 +8,8 @@
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
   <p><a href="{% url auth_password_reset %}">Reset password</a>
-  | <a href="{% url registration_register %}">Sign up</a></p>
+  {% if not request.muaccount or request.muaccount.is_public %}
+  | <a href="{% url registration_register %}">Sign up</a>
+  {% endif %}
+  </p>
 {% endblock %}
