@@ -1,10 +1,6 @@
                                 Django SAAS kit
                                 ===============
 
-Author: Maciej Pasternacki <maciej@pasternacki.net>
-Date: 2009/06/17 15:50:01
-
-
 Django SAAS kit is an example Django project integrating
 django-subscription and django-muaccount applications to achieve
 multi-user accounts with custom domain, that are characteristic for
