@@ -30,6 +30,14 @@ Table of Contents
   are Python (2.5 or higher, but may work on earlier versions of
   Python) and stable release of Django (1.0.2 at this moment).
 
+  To download dependencies (step 1), following programs are needed:
+  - make,
+  - git,
+  - mercurial,
+  - subversion,
+  - wget,
+  - tar accepting "-j" option (any recent GNU tar).
+
 2 Default data set
 ~~~~~~~~~~~~~~~~~~
   By loading exampledata.json, data is populated with:
