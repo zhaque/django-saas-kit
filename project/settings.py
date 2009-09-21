@@ -81,6 +81,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'paypal.pro',
     'paypal.standard.ipn',
     'registration',
     'muaccounts',
@@ -98,6 +99,11 @@ LOGIN_REDIRECT_URL = '/'
 SUBSCRIPTION_PAYPAL_SETTINGS = {
     'business' : PAYPAL_RECEIVER_EMAIL,
     }
+
+# Website payments Pro settings
+PAYPAL_WPP_USER = ""
+PAYPAL_WPP_PASSWORD = ""
+PAYPAL_WPP_SIGNATURE = ""
 
 MUACCOUNTS_ROOT_DOMAIN = 'example.com'
 MUACCOUNTS_DEFAULT_DOMAIN = 'www.example.com'
