@@ -7,3 +7,6 @@
 [submodule "upstream/django-registration"]
 	path = upstream/django-registration
 	url = git://github.com/bretthoerner/django-registration.git
+[submodule "upstream/django-subscription"]
+	path = upstream/django-subscription
+	url = git://github.com/CrowdSense/django-subscription.git
